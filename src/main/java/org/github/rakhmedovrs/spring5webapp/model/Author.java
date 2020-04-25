@@ -1,5 +1,6 @@
 package org.github.rakhmedovrs.spring5webapp.model;
 
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 import java.util.StringJoiner;
@@ -26,11 +27,11 @@ public class Author
 	{
 	}
 
-	public Author(String firstName, String lastName, Set<Book> books)
+	public Author(String firstName, String lastName)
 	{
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.books = books;
+		this.books = new HashSet<>();
 	}
 
 	public Long getId()
