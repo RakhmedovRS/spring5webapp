@@ -1,6 +1,8 @@
 package org.github.rakhmedovrs.spring5webapp.model;
 
+import java.util.Objects;
 import java.util.Set;
+import java.util.StringJoiner;
 import javax.persistence.*;
 
 /**
@@ -69,5 +71,39 @@ public class Author
 	public void setBooks(Set<Book> books)
 	{
 		this.books = books;
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		Author author = (Author) o;
+
+		return Objects.equals(id, author.id);
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return id != null ? id.hashCode() : 0;
+	}
+
+	@Override
+	public String toString()
+	{
+		return new StringJoiner(", ", Author.class.getSimpleName() + "[", "]")
+			.add("id=" + id)
+			.add("firstName='" + firstName + "'")
+			.add("lastName='" + lastName + "'")
+			.add("books=" + books)
+			.toString();
 	}
 }
