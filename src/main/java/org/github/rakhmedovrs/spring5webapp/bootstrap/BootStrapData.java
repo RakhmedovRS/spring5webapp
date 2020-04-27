@@ -52,7 +52,7 @@ public class BootStrapData implements CommandLineRunner
 		System.out.println("Number of books: " + bookRepository.count());
 		System.out.println("Number of authors: " + authorRepository.count());
 
-		Publisher piter = new Publisher("Semenovskaya naberezhnaya", "Moscow", "Moscowskaya oblast", "242424");
+		Publisher piter = new Publisher("Piter publishing","Semenovskaya naberezhnaya", "Moscow", "Moscowskaya oblast", "242424");
 		piter.getBooks().add(springForDummies);
 		piter.getBooks().add(noEJB);
 

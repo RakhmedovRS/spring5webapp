@@ -104,7 +104,6 @@ public class Author
 			.add("id=" + id)
 			.add("firstName='" + firstName + "'")
 			.add("lastName='" + lastName + "'")
-			.add("books=" + books)
 			.toString();
 	}
 }

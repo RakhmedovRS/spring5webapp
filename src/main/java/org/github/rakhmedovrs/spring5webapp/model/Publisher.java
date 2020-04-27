@@ -17,6 +17,7 @@ public class Publisher
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
+	private String name;
 	private String address;
 	private String city;
 	private String state;
@@ -30,8 +31,9 @@ public class Publisher
 	{
 	}
 
-	public Publisher(String address, String city, String state, String zip)
+	public Publisher(String name, String address, String city, String state, String zip)
 	{
+		this.name = name;
 		this.address = address;
 		this.city = city;
 		this.state = state;
@@ -47,6 +49,16 @@ public class Publisher
 	public void setId(Long id)
 	{
 		this.id = id;
+	}
+
+	public String getName()
+	{
+		return name;
+	}
+
+	public void setName(String name)
+	{
+		this.name = name;
 	}
 
 	public String getAddress()
@@ -127,6 +139,7 @@ public class Publisher
 	{
 		return new StringJoiner(", ", Publisher.class.getSimpleName() + "[", "]")
 			.add("id=" + id)
+			.add("name='" + name + "'")
 			.add("address='" + address + "'")
 			.add("city='" + city + "'")
 			.add("state='" + state + "'")

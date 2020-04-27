@@ -121,7 +121,6 @@ public class Book
 			.add("id=" + id)
 			.add("title='" + title + "'")
 			.add("isbn='" + isbn + "'")
-			.add("authors=" + authors)
 			.toString();
 	}
 }
