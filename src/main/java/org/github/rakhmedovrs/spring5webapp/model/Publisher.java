@@ -1,11 +1,10 @@
 package org.github.rakhmedovrs.spring5webapp.model;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 import java.util.StringJoiner;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * @author RakhmedovRS
@@ -23,6 +22,10 @@ public class Publisher
 	private String state;
 	private String zip;
 
+	@OneToMany
+	@JoinColumn(name = "publisher_id")
+	private Set<Book> books;
+
 	public Publisher()
 	{
 	}
@@ -33,6 +36,7 @@ public class Publisher
 		this.city = city;
 		this.state = state;
 		this.zip = zip;
+		this.books = new HashSet<>();
 	}
 
 	public Long getId()
@@ -83,6 +87,16 @@ public class Publisher
 	public void setZip(String zip)
 	{
 		this.zip = zip;
+	}
+
+	public Set<Book> getBooks()
+	{
+		return books;
+	}
+
+	public void setBooks(Set<Book> books)
+	{
+		this.books = books;
 	}
 
 	@Override
